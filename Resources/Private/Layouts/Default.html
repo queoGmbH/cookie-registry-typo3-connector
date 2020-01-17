@@ -1,0 +1,20 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:be.container pageTitle="MIS Import Module"
+                loadJQuery="false"
+                includeCssFiles="{0: '{f:uri.resource(path:\'Styles/materialize.min.css\')}'}"
+                loadExtJs="true"
+                includeJsFiles="{0: '{f:uri.resource(path:\'Scripts/jquery-3.2.1.min.js\')}', 1: '{f:uri.resource(path:\'Scripts/materialize.min.js\')}'}">
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <f:render section="main" />
+            </div>
+        </div>
+    </div>
+
+</f:be.container>
+
+</html>

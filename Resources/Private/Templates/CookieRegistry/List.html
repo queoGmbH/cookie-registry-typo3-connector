@@ -1,0 +1,29 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Beschreibung</th>
+                <th>Ablauf</th>
+            </tr>
+        </thead>
+        <tbody>
+            <f:for each="{cookieCategoryList}" as="category">
+                <tr>
+                    <td><f:translate key="cookie_registry_connector.cookie_categories.{category.name}.name" extensionName="cookie_registry_typo3_connector" /></td>
+                    <td colspan="2"><f:translate key="cookie_registry_connector.cookie_categories.{category.name}.description" /></td>
+                </tr>
+                <f:for each="{category.cookies}" as="cookie">
+                    <tr>
+                        <td><f:translate key="cookie_registry_connector.cookie.{cookie.name}.name" /></td>
+                        <td><f:translate key="cookie_registry_connector.cookie.{cookie.name}.description" /></td>
+                        <td>{cookie.expire}</td>
+                    </tr>
+                </f:for>
+            </f:for>
+        </tbody>
+    </table>
+
+</html>

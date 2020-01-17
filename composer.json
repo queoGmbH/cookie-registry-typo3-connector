@@ -1,0 +1,46 @@
+{
+    "name": "queo/cookie-registry-typo3-connector",
+    "description": "Connector for queo cookie-registry, to handle cookie-preferences.",
+    "type": "typo3-cms-extension",
+    "license": "GPL-2.0+",
+    "authors": [
+        { "name": "Maik Starke", "email": "m.starke@queo-group.com" }
+    ],
+    "config": {
+        "bin-dir": "bin"
+    },
+    "repositories": [
+        {
+            "name": "queo/cookie-registry",
+            "type": "git",
+            "url": "https://github.com/queoGmbH/cookie-registry"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Queo\\CookieRegistry\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Queo\\CookieRegistry\\Tests\\": "tests/" }
+    },
+    "require": {
+        "queo/cookie-registry": "*"
+    },
+    "require-dev": {
+        "phpmetrics/phpmetrics": "~2",
+        "phpunit/phpunit": "5.7.*",
+        "phpstan/phpstan": "^0.12"
+    },
+    "scripts": {
+        "test-phpstan": [
+            "phpstan analyse -c config\\tests\\phpstan.neon src\\"
+        ],
+        "test-phpunit": [
+            "phpunit -c config\\tests\\phpunit.xml"
+        ]
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "cookie_registry_typo3_connector"
+        }
+    }
+}
