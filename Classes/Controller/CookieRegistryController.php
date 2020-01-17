@@ -27,7 +27,7 @@ class CookieRegistryController extends ActionController
 
         if ((int)$this->settings['enable'] === 1) {
             $cookieRegistrySettings = [
-                'configurationYamlPath' => PATH_site . 'config/configuration.prod.yml',
+                'configurationYamlPath' => $this->settings['configurationYamlPath'],
                 'languageKey'           => $_GET['languageKey']
             ];
 
