@@ -40,7 +40,7 @@
     },
     "extra": {
         "typo3/cms": {
-            "extension-key": "cookie_registry_typo3_connector"
+            "extension-key": "cookie_registry_connector"
         }
     }
 }
