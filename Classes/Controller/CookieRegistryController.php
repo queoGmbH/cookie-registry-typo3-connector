@@ -3,6 +3,7 @@
 namespace Queo\CookieRegistryConnector\Controller;
 
 use Queo\CookieRegistry\CookieRegistry;
+use TYPO3\CMS\Core\Site\Entity\SiteLanguage;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class CookieRegistryController extends ActionController
@@ -25,10 +26,15 @@ class CookieRegistryController extends ActionController
     {
         parent::initializeAction();
 
+        /**
+         * @var $siteLanguage SiteLanguage
+         */
+        $siteLanguage = $GLOBALS['TYPO3_REQUEST']->getAttribute('language');
+
         if ((int)$this->settings['enable'] === 1) {
             $cookieRegistrySettings = [
                 'configurationYamlPath' => PATH_site . 'config/configuration.prod.yml',
-                'languageKey'           => $_GET['languageKey']
+                'languageKey'           => $siteLanguage->getTwoLetterIsoCode()
             ];
 
             $this->cookieRegistry = CookieRegistry::get($cookieRegistrySettings);
