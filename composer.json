@@ -17,10 +17,10 @@
         }
     ],
     "autoload": {
-        "psr-4": { "Queo\\CookieRegistry\\": "src/" }
+        "psr-4": { "Queo\\CookieRegistryConnector\\": "src/" }
     },
     "autoload-dev": {
-        "psr-4": { "Queo\\CookieRegistry\\Tests\\": "tests/" }
+        "psr-4": { "Queo\\CookieRegistryConnector\\Tests\\": "tests/" }
     },
     "require": {
         "queo/cookie-registry": "*"
