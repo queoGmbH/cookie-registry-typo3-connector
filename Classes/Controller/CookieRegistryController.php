@@ -40,7 +40,7 @@ class CookieRegistryController extends ActionController
      */
     public function jsonAction()
     {
-        $this->view->assign('json', $this->cookieRegistry->getRegistryJson());
+        return $this->cookieRegistry->getRegistryJson();
     }
 
     /**
