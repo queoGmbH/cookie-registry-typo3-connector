@@ -32,8 +32,10 @@ class CookieRegistryController extends ActionController
         $siteLanguage = $GLOBALS['TYPO3_REQUEST']->getAttribute('language');
 
         if ((int)$this->settings['enable'] === 1) {
+            $yamlPath = $this->settings['configurationYamlPath'];
+
             $cookieRegistrySettings = [
-                'configurationYamlPath' => PATH_site . 'config/configuration.prod.yml',
+                'configurationYamlPath' => PATH_site . $yamlPath,
                 'languageKey'           => $siteLanguage->getTwoLetterIsoCode()
             ];
 
