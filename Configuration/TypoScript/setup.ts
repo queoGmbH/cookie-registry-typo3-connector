@@ -1,7 +1,8 @@
 plugin.tx_cookieregistryconnector {
 	settings {
-		enable = {$plugin.tx_cookieregistryconnector.enable}
 		configurationYamlPath = {$plugin.tx_cookieregistryconnector.settings.configurationYamlPath}
+		enable = {$plugin.tx_cookieregistryconnector.enable}
+		excludePids = {$plugin.tx_cookieregistryconnector.settings.excludePids}
 	}
 
 	view {

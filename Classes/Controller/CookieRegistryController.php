@@ -31,6 +31,13 @@ class CookieRegistryController extends ActionController
          */
         $siteLanguage = $GLOBALS['TYPO3_REQUEST']->getAttribute('language');
 
+        // disable cookie-consent, if current pid matches ignorePids
+        $excludedPids = explode(',', $this->settings['excludePids']);
+
+        if (in_array($GLOBALS['TSFE']->id, $excludedPids)) {
+            $this->settings['enable'] = 0;
+        }
+
         if ((int)$this->settings['enable'] === 1) {
             $yamlPath = $this->settings['configurationYamlPath'];
 
@@ -48,7 +55,9 @@ class CookieRegistryController extends ActionController
      */
     public function jsonAction()
     {
-        return $this->cookieRegistry->getRegistryJson();
+        if ($this->cookieRegistry) {
+            return $this->cookieRegistry->getRegistryJson();
+        }
     }
 
     /**
