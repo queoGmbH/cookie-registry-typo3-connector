@@ -1,3 +1,7 @@
+## 1.1.1 (März 05, 2020)
+  - provide cookie-configuration to get name of system-cookie 
+  - check for system-cookie, before pass cookie-registry-json
+
 ## 1.1.0 (März 03, 2020)
   - provide "exclude pids", to deactivate cookie-consent on privacy page
 
