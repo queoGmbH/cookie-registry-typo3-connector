@@ -3,6 +3,7 @@
 namespace Queo\CookieRegistryConnector\Controller;
 
 use Queo\CookieRegistry\CookieRegistry;
+use Queo\CookieRegistry\Utility\ConfigurationUtility;
 use TYPO3\CMS\Core\Site\Entity\SiteLanguage;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -18,6 +19,10 @@ class CookieRegistryController extends ActionController
      */
     protected $configurationManager;
     /**
+     * @var ConfigurationUtility
+     */
+    protected $configurationUtility;
+    /**
      * @var array
      */
     protected $settings = [];
@@ -31,10 +36,18 @@ class CookieRegistryController extends ActionController
          */
         $siteLanguage = $GLOBALS['TYPO3_REQUEST']->getAttribute('language');
 
-        // disable cookie-consent, if current pid matches ignorePids
+        // get configuration
+        $this->configurationUtility = new ConfigurationUtility($this->settings['configurationYamlPath']);
+        $configuration              = $this->configurationUtility->getMergedConfiguration();
+
+        // get excluded pids
         $excludedPids = explode(',', $this->settings['excludePids']);
 
-        if (in_array($GLOBALS['TSFE']->id, $excludedPids)) {
+        // disable cookie-consent, if current pid matches ignorePids and system-cookie is not already set
+        if (
+            in_array($GLOBALS['TSFE']->id, $excludedPids) &&
+            ! array_key_exists($configuration['settings']['settingsStorageCookie'], $_COOKIE)
+        ) {
             $this->settings['enable'] = 0;
         }
 
