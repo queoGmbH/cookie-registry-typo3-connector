@@ -1,3 +1,6 @@
+## 1.1.2 (März 05, 2020)
+  - update js-lib for cookie-settings-manager
+
 ## 1.1.1 (März 05, 2020)
   - provide cookie-configuration to get name of system-cookie 
   - check for system-cookie, before pass cookie-registry-json
