@@ -1,3 +1,7 @@
+## 1.2.0 (März 12, 2020)
+  - updated requirement for registry
+  - added toggleOption
+
 ## 1.1.2 (März 05, 2020)
   - update js-lib for cookie-settings-manager
 
