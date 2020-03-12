@@ -1,3 +1,6 @@
+## 1.2.1 (März 12, 2020)
+  - updated cookie settings manager
+
 ## 1.2.0 (März 12, 2020)
   - updated requirement for registry
   - added toggleOption
