@@ -39,16 +39,16 @@ class CookieRegistryController extends ActionController
         // get configuration
         $this->configurationUtility = new ConfigurationUtility($this->settings['configurationYamlPath']);
         $configuration              = $this->configurationUtility->getMergedConfiguration();
+        $toggleOnStartup = true;
 
         // get excluded pids
         $excludedPids = explode(',', $this->settings['excludePids']);
-
         // disable cookie-consent, if current pid matches ignorePids and system-cookie is not already set
         if (
             in_array($GLOBALS['TSFE']->id, $excludedPids) &&
             ! array_key_exists($configuration['settings']['settingsStorageCookie'], $_COOKIE)
         ) {
-            $this->settings['enable'] = 0;
+            $toggleOnStartup = false;
         }
 
         if ((int)$this->settings['enable'] === 1) {
@@ -56,9 +56,9 @@ class CookieRegistryController extends ActionController
 
             $cookieRegistrySettings = [
                 'configurationYamlPath' => PATH_site . $yamlPath,
-                'languageKey'           => $siteLanguage->getTwoLetterIsoCode()
+                'languageKey'           => $siteLanguage->getTwoLetterIsoCode(),
+                'toggleOnStartup' => $toggleOnStartup
             ];
-
             $this->cookieRegistry = CookieRegistry::get($cookieRegistrySettings);
         }
     }
