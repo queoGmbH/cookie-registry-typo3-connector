@@ -1,3 +1,6 @@
+## 1.2.2 (März 16, 2020)
+  - updated cookie manager - bugfixing wrong behaviour when toggleOnStartup is false
+
 ## 1.2.1 (März 12, 2020)
   - updated cookie settings manager
 
