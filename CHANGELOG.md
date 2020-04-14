@@ -1,3 +1,6 @@
+## 1.2.3 (April 14, 2020)
+  - removed unused flexform include
+
 ## 1.2.2 (März 16, 2020)
   - updated cookie manager - bugfixing wrong behaviour when toggleOnStartup is false
 
