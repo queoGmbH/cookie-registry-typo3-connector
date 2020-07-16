@@ -23,7 +23,7 @@
         "psr-4": { "Queo\\CookieRegistryConnector\\Tests\\": "tests/" }
     },
     "require": {
-        "queo/cookie-registry": "^1.1"
+        "queo/cookie-registry": "^1.2"
     },
     "require-dev": {
         "phpmetrics/phpmetrics": "~2",
