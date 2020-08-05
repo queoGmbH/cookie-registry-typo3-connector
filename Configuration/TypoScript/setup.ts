@@ -40,6 +40,6 @@ jsonPageType {
 }
 
 page.includeJSFooter {
-	cookieRegistryLib = {$plugin.tx_cookieregistryconnector.settings.includeJSFooter.cookieRegistryInit}
+	cookieRegistryLib = {$plugin.tx_cookieregistryconnector.settings.includeJSFooter.cookieRegistryLib}
 	cookieRegistryInit = {$plugin.tx_cookieregistryconnector.settings.includeJSFooter.cookieRegistryInit}
 }

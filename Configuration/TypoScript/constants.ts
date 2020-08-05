@@ -17,9 +17,9 @@ plugin.tx_cookieregistryconnector {
 	settings {
 		configurationYamlPath = ../config/configuration.yml
 		excludePids =
-		includeJsFooter {
-			cookieRegistryLib = EXT:hanse_site/Resources/Public/dist/shared/static/cookie-settings-manager.min.js
-			cookieRegistryInit = EXT:cookie_registry_typo3_connector/Resources/Public/javascripts/initCookieRegistry.js
+		includeJSFooter {
+			cookieRegistryLib = EXT:cookie_registry_connector/Resources/Public/javascripts/cookie-settings-manager.min.js
+			cookieRegistryInit = EXT:cookie_registry_connector/Resources/Public/javascripts/initCookieRegistry.js
 		}
 	}
 }

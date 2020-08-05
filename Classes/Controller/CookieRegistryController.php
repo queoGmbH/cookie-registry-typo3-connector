@@ -31,10 +31,16 @@ class CookieRegistryController extends ActionController
     {
         parent::initializeAction();
 
-        /**
-         * @var $siteLanguage SiteLanguage
-         */
-        $siteLanguage = $GLOBALS['TYPO3_REQUEST']->getAttribute('language');
+        if ($GLOBALS['TYPO3_REQUEST']) {
+            /**
+             * @var $siteLanguage SiteLanguage
+             */
+            $siteLanguage = $GLOBALS['TYPO3_REQUEST']->getAttribute('language');
+            $languageCode = $siteLanguage->getTwoLetterIsoCode();
+        } else {
+            $languageCode = 'de';
+        }
+
 
         // get configuration
         $this->configurationUtility = new ConfigurationUtility($this->settings['configurationYamlPath']);
@@ -56,7 +62,7 @@ class CookieRegistryController extends ActionController
 
             $cookieRegistrySettings = [
                 'configurationYamlPath' => PATH_site . $yamlPath,
-                'languageKey'           => $siteLanguage->getTwoLetterIsoCode(),
+                'languageKey'           => $languageCode,
                 'toggleOnStartup' => $toggleOnStartup
             ];
             $this->cookieRegistry = CookieRegistry::get($cookieRegistrySettings);
