@@ -15,7 +15,7 @@ class CookieRegistryController extends ActionController
     protected $cookieRegistry;
     /**
      * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $configurationManager;
     /**
@@ -61,7 +61,7 @@ class CookieRegistryController extends ActionController
             $yamlPath = $this->settings['configurationYamlPath'];
 
             $cookieRegistrySettings = [
-                'configurationYamlPath' => PATH_site . $yamlPath,
+                'configurationYamlPath' => \TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/' . $yamlPath,
                 'languageKey'           => $languageCode,
                 'toggleOnStartup' => $toggleOnStartup
             ];

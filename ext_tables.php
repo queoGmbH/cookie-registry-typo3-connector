@@ -1,12 +1,6 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die('Access denied.');
-}
-$extKey = $_EXTKEY;
+defined( 'TYPO3_MODE' ) || die( 'Access denied.' );
 
-if (TYPO3_MODE === 'BE') {
-
-};
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Queo.CookieRegistryConnector',
     'CookieList',
@@ -19,5 +13,5 @@ if (TYPO3_MODE === 'BE') {
     'Cookie Registry JSON'
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($extKey, 'Configuration/TypoScript', 'Cookie Registry Typo3 Connector');
-$pluginSignature = str_replace('_', '', $extKey) . '_cookielist';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('cookie_registry_connector', 'Configuration/TypoScript', 'Cookie Registry Typo3 Connector');
+$pluginSignature = str_replace('_', '','cookie_registry_connector') . '_cookielist';
